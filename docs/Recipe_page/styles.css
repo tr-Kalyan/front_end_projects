@@ -1,0 +1,111 @@
+body {
+    font-family: 'Outfit', sans-serif; 
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #eee5d9;
+    height:150vh;
+}
+ 
+section{
+    background-color: white;
+    width:40em;
+    padding:15px;
+    border-radius:12px;
+}
+
+p, li, td,strong, .step{
+    font-size:12px;
+    font-weight: 400px;
+    color:hsl(13, 15%, 36%);
+}
+
+header h1,h2{
+    font-family: 'Young Serif', serif; 
+    font-weight: 600;
+}
+
+h2{
+    color:hsl(14, 45%, 36%);
+    font-size: 20px;
+}
+  
+header h1{
+    color:hsl(24, 5%, 18%);
+}
+
+.preparation{
+    background-color: rgba(240, 233, 236, 0.844);
+    padding:15px;
+    margin-bottom:5px;
+}
+.preparation h4{
+    color:hsl(332, 51%, 32%)
+}
+.preparation li strong{
+    color:hsl(24, 5%, 18%)
+}
+
+.instructions ol{
+    padding-left:16px;
+}
+strong {
+    font-family: 'Outfit', sans-serif; 
+    font-weight: 700; 
+    color:hsl(15, 5%, 34%);
+}
+li {
+    margin-bottom:10px;
+}
+header img{
+    width:640px;
+    border-radius:6px;
+}
+
+hr {
+    border: 0.1px solid #ccc; /* Adjust the border color and thickness as needed */
+    margin-top:20px;
+}
+
+
+.instructions h2 {
+    margin-bottom: 10px;
+}
+
+.step {
+    display: flex; /* To align the number and text */
+    flex-direction:row;
+    justify-content:flex-start;
+}
+
+.step div{
+    margin:5px;
+}
+.number{
+    width:2%;
+}
+  
+.proc{
+    align-self:flex-start;
+    width:85%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+  
+td {
+    border-bottom: 1px solid #ddd;
+    padding:8px;
+}
+
+tr:last-child td{
+    border-bottom:none;
+}
+
+.cal, .number{
+    color:hsl(14, 45%, 36%);
+    font-weight: 600;
+}
