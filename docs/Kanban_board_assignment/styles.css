@@ -1,0 +1,59 @@
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.container{
+  display:flex;
+  gap:1em
+}
+
+.board{
+  display:flex;
+  flex-direction: column;
+  gap:1em;
+  min-width:200px;
+  height: 90vh;
+  border:0.5px solid black;
+  border-radius:10px;
+  box-shadow:rgba(100,100,111,0.2) 0px 7px 29px 0px;
+  padding:1em;
+  overflow: hidden;
+}
+
+.board .heading{
+  text-align:center
+}
+
+.add-board{
+  align-self: center;
+}
+.card{
+  display:flex;
+  justify-content: space-around;
+  border:1px solid grey;
+  border-radius:10px;
+  cursor:pointer;
+  
+  background-color: rgb(189, 225, 231);
+}
+
+.card p{
+  width:85%;
+}
+
+
+.heading .title-section{
+  display:flex;
+}
+
+.heading h3{
+  width:80%;
+  margin-right:auto;
+  text-align:center;
+}
+
+.heading .dlt-icon{
+  width:10%;
+  align-self:center;
+  cursor:pointer;
+}
