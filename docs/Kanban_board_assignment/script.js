@@ -73,12 +73,15 @@ const addButton = document.querySelector('.add-board');
 
 
 addButton.addEventListener('click',()=>{
+  //Create the board element
   const boardDiv = document.createElement('div');
   boardDiv.classList.add('board');
 
+  //Create the header section
   const headerDiv = document.createElement('div');
   headerDiv.classList.add('heading');
 
+  
   const titleDiv = document.createElement('div');
   titleDiv.classList.add('title-section');
   
@@ -89,17 +92,28 @@ addButton.addEventListener('click',()=>{
   
   titleDiv.appendChild(createDeleteIcon());
   headerDiv.appendChild(titleDiv)
+
+  //Add "Add Task" button
   const btn = document.createElement('button');
   btn.innerHTML='Add';
   btn.classList.add('add-task');
   headerDiv.appendChild(btn);
   boardDiv.appendChild(headerDiv)
   deleteBoardEvent(boardDiv);
-  boardDiv.addEventListener('dragover',()=>{
-    const card = document.querySelector('.is-dragging')
-    
-    boardDiv.appendChild(card)
-  })
+
+
+  boardDiv.addEventListener('dragover', (e) => {
+    e.preventDefault();
+
+    const card = document.querySelector('.is-dragging');
+    const afterElement = getDragAfterElement(boardDiv, e.clientY);
+
+    if (afterElement == null) {
+      boardDiv.appendChild(card); // Add to the end if no specific position
+    } else {
+      boardDiv.insertBefore(card, afterElement); // Insert before the hovered element
+    }
+  });
   container.insertBefore(boardDiv,addButton);
 })
 
