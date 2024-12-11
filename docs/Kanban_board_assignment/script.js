@@ -97,8 +97,8 @@ addButton.addEventListener('click',()=>{
   deleteBoardEvent(boardDiv);
   boardDiv.addEventListener('dragover',()=>{
     const card = document.querySelector('.is-dragging')
-    const target = e.target;
-    boardDiv.insertBefore(card,target)
+    
+    boardDiv.appendChild(card)
   })
   container.insertBefore(boardDiv,addButton);
 })
@@ -139,7 +139,7 @@ container.addEventListener('click',(e)=>{
 //save the task to local storage
 function saveTasks(card,board){
   const keys = Object.keys(localStorage);
-  console.log(keys.length)
+  //console.log(keys.length)
 
   localStorage.setItem(board.id+`-${keys.length+1}`,card.innerHTML);
 }
@@ -151,10 +151,56 @@ items.forEach((card)=>{
 
 
 
+/*
 boards.forEach((board) => {
   board.addEventListener('dragover',(e)=>{
+    e.preventDefault()
+    console.log(e.target)
+    //const target = e.target
+    //console.log('target X & Y',target,target.getBoundingClientRect())
     const card = document.querySelector('.is-dragging')
-    const target = e.target;
-    board.insertBefore(card,target)
+    //console.log('dragging card X & Y',card,card.getBoundingClientRect())
+    
+    board.appendChild(card)
   })
 })
+*/
+
+boards.forEach((board) => {
+  board.addEventListener('dragover', (e) => {
+    e.preventDefault();
+
+    const card = document.querySelector('.is-dragging'); // The dragging card
+
+    // Find the element currently under the mouse pointer
+    const afterElement = getDragAfterElement(board, e.clientY);
+
+    if (afterElement == null) {
+      board.appendChild(card); // Add to the end if no specific position
+    } else {
+      board.insertBefore(card, afterElement); // Insert before the hovered element
+    }
+  });
+});
+
+// Helper function to get the element after which to insert
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll('.card:not(.is-dragging)')
+  ];
+
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}
+
