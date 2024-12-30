@@ -1,0 +1,19 @@
+
+body{
+    background-color: rgb(216, 233, 247);
+}
+
+.rating{
+    background-color: white;
+}
+
+.star{
+    font-size:2rem;
+    cursor: pointer;
+    color:lightgray;
+    transition: color 0.3s ease;
+}
+
+.star-filled{
+    color: #ffdf00; 
+}
