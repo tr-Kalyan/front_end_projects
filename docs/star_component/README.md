@@ -51,20 +51,6 @@ npm run dev
 http://localhost:5173
 ```
 
-Folder Structure
-star_component/
-├── public/
-├── src/
-│   ├── components/
-│   │   └──  star_component.jsx
-│   │    └──  star.css
-│   │    └── star.jsx
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   ├── main.jsx
-├── package.json
-└── README.md
 
 How It Works
 
